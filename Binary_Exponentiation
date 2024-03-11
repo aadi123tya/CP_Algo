@@ -1,0 +1,44 @@
+Case 1: If B = 0, return 1.
+Case 2: If B is an even number, then instead of calculating (AB), we can calculate ((A2)B/2) and the result will be same.
+Case 3: If B is an odd number, then instead of calculating (AB), we can calculate (A * (A(B – 1)/2)2),
+
+_____________________________________________________________
+RECURSIVE APPROACH o(LOG(B))
+******************
+int solve(int a,int b){
+
+if(b==0)return 1;
+
+ int res = solve(a,b/2); // HALF THE POWER BY 2.
+
+ if(b%2==1) // CHECK FOR THE ODD NUMBER
+ {
+     return res*res*a;
+ }
+ else  // CHECK FOR THE EVEN NUMBER
+ {
+     return res*res;
+ }
+
+}
+______________________________________________________________
+
+ITERATIVE CODE  O(log(B))
+**************
+
+long long solve(long a,long b){
+
+long long res =1;
+while(b!=0)
+{
+    if(b&1==1)
+    {
+        res*=a;
+    }
+    a*=a;
+    b>>=1;
+}
+return res;
+
+}
+______________________________________________________________
