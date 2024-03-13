@@ -1,0 +1,46 @@
+EUCLID ALGORITHME
+*****************
+______________________________________________
+
+
+IN-BUILT FUNCTION
+*****************
+__gcd(24,2);
+TC: O(LOG N)
+
+
+______________________________________________
+
+
+RECURSIVE APPROACH
+******************
+int GCD(int a,int b)
+{
+    if(b==0)return a;
+    return GCD(b,a%b);
+}
+TC:O(LOG N)
+
+
+______________________________________________
+
+
+ITERATIVE APPROACH
+******************
+TC: O(LOG N)
+int GCD(int a,int b)
+{
+   int divisor = min(a,b);
+   int dividend = max(a,b);
+   int remainder = -1;
+   int gcd =0;
+   while(remainder!=0)
+   {
+    remainder = dividend%divisor;
+    if(remainder==0)gcd = divisor;
+    dividend = divisor;
+    divisor = remainder;
+
+   }
+   return gcd;
+}
